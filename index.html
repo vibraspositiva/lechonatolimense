@@ -6,17 +6,16 @@
     <title>Lechona Tolimense - Tarjeta Digital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- CONFIGURACIÓN DE COLORES Y FUENTES --- */
         :root {
-            --rojo-fondo: #A32026; /* Un rojo más oscuro y elegante, tomado de la imagen */
+            --rojo-fondo: #A32026;
             --amarillo-brillante: #FFEB3B;
             --blanco: #FFFFFF;
             --negro: #1A1A1A;
             --gris-claro: #F4F4F4;
-            --borde-tarjeta: #D8B20C; /* Amarillo dorado para el borde */
+            --borde-tarjeta: #D8B20C;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
         body {
             background-color: var(--gris-claro);
@@ -27,7 +26,6 @@
             padding: 20px;
         }
 
-        /* --- CONTENEDOR PRINCIPAL DE LA TARJETA --- */
         .card {
             background: var(--rojo-fondo);
             width: 100%;
@@ -40,7 +38,6 @@
             border: 4px solid var(--borde-tarjeta);
         }
 
-        /* --- ENCABEZADO CON LOGO Y TÍTULO --- */
         .header {
             background: var(--amarillo-brillante);
             padding: 20px;
@@ -51,68 +48,39 @@
             font-size: 1.8rem;
             text-transform: uppercase;
             font-weight: 900;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-            margin-bottom: 5px;
         }
 
-        .header p {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* --- CONTENEDOR DE LA IMAGEN PRINCIPAL --- */
         .img-container {
             width: 100%;
-            padding: 15px; /* Más espacio para el borde de la imagen */
-            background-color: var(--rojo-fondo);
+            padding: 15px;
         }
 
         .img-container img {
             width: 100%;
             border-radius: 15px;
             border: 4px solid var(--blanco);
-            display: block; /* Evita espacios extraños */
+            display: block;
         }
 
-        /* --- SECCIÓN DE INFORMACIÓN PRINCIPAL --- */
         .info { padding: 20px; }
         .price {
             font-size: 2.8rem;
             font-weight: bold;
             color: var(--amarillo-brillante);
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            font-style: italic;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* --- SECCIÓN DE STORYTELLING / TRADICIÓN --- */
-        .story {
-            background: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente */
-            margin: 0 15px 15px 15px;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            text-align: left; /* Para leer mejor */
-        }
-
-        .story strong {
-            color: var(--amarillo-brillante);
-            display: block;
             margin-bottom: 5px;
         }
 
-        /* --- CONTENEDOR DE BOTONES INTERACTIVOS (RED RESPONSIVE) --- */
+        .story {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
         .btn-container {
             display: grid;
-            grid-template-columns: 1fr;
             gap: 12px;
             padding: 0 20px 20px;
         }
@@ -125,65 +93,38 @@
             border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.2s ease-in-out;
+            font-size: 1.1rem;
             color: var(--negro);
-            border: none;
-            cursor: pointer;
+            transition: 0.2s;
         }
 
-        .btn i { margin-right: 10px; font-size: 1.4rem; }
-        .btn:hover { transform: scale(1.03); filter: brightness(1.1); }
-        .btn:active { transform: scale(0.98); }
+        .btn-ws { background-color: #25D366; color: white; }
+        .btn-call { background-color: var(--amarillo-brillante); }
+        .btn-pdf { background-color: var(--blanco); }
 
-        /* Estilos específicos de cada botón */
-        .btn-ws { background-color: #25D366; color: white; } /* Verde WhatsApp */
-        .btn-call { background-color: var(--amarillo-brillante); } /* Amarillo de la tarjeta */
-        .btn-pdf { background-color: var(--blanco); border: 1px solid #ddd; } /* Blanco para el PDF */
-
-        /* --- SECCIÓN DE LOS CERDITOS --- */
+        /* Arreglo de los cerditos - Ahora son iconos, no imágenes rotas */
         .pigs-footer {
             display: flex;
-            justify-content: space-between;
-            padding: 0 30px;
-            margin-top: 10px;
+            justify-content: space-around;
+            padding: 10px 0;
+            font-size: 2.5rem;
+            color: var(--amarillo-brillante);
         }
 
-        .pigs-footer img {
-            height: 40px; /* Tamaño de los cerditos */
-        }
-
-        /* --- PIE DE PÁGINA (DERECHOS) --- */
         .footer {
             background: #111;
             padding: 15px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #AAA;
-            margin-top: 10px;
         }
 
-        .footer p { margin-bottom: 3px; }
-        .footer strong { color: #DDD; }
-
-        /* --- CONTROL DE SUSCRIPCIÓN INVISIBLE (CAPA DE BLOQUEO) --- */
         #expired-notice {
-            display: none; /* Oculto por defecto */
+            display: none;
             background: #222;
             color: #DDD;
-            padding: 40px 20px;
+            padding: 40px;
             border-radius: 20px;
-            max-width: 350px;
             text-align: center;
-            font-family: Arial, sans-serif;
-        }
-
-        #expired-notice h2 { color: #E74C3C; margin-bottom: 15px; }
-
-        /* --- AJUSTES PARA DISPOSITIVOS MÓVILES EXTREMOS (RESPONSIVE) --- */
-        @media (max-width: 350px) {
-            .header h1 { font-size: 1.5rem; }
-            .price { font-size: 2.2rem; }
-            .btn { font-size: 1rem; padding: 15px; }
         }
     </style>
 </head>
@@ -191,9 +132,7 @@
 
     <div id="expired-notice">
         <h2>SERVICIO SUSPENDIDO</h2>
-        <p>Esta tarjeta digital ha vencido y requiere renovación.</p>
-        <p>Por favor, contacte a soporte para activarla nuevamente.</p>
-        <br>
+        <p>Contacte a soporte para renovación.</p>
         <p><strong>Vibras Positivas: 3117700431</strong></p>
     </div>
 
@@ -204,51 +143,44 @@
         </div>
 
         <div class="img-container">
-            <img src="image_0.png" alt="Lechona Tolimense Original">
+            <img src="https://i.ibb.co/3ykM0rR/lechona-portada.jpg" alt="Lechona Original">
         </div>
 
         <div class="info">
             <div class="price">$15.000</div>
-            <span class="tagline">¡Asegura tu porción los domingos!</span>
-            
+            <p><em>¡Asegura tu porción los domingos!</em></p>
             <div class="story">
-                <strong>Nuestra Tradición:</strong> Carne marinada por 12 horas y cocción lenta en horno de barro para un cuero 100% crocante.
+                <strong>Nuestra Tradición:</strong> Carne marinada por 12 horas y cocción lenta para un cuero 100% crocante.
             </div>
         </div>
 
         <div class="btn-container">
-            <a href="https://wa.me/573202496928?text=Hola!%20Quiero%20pedir%20una%20porción%20de%20lechona" class="btn btn-ws" target="_blank">
+            <a href="https://wa.me/573202496928" class="btn btn-ws" target="_blank">
                 <i class="fab fa-whatsapp"></i> WhatsApp Pedidos
             </a>
-            
             <a href="tel:3202496928" class="btn btn-call">
                 <i class="fas fa-phone-alt"></i> Llamar Directo
             </a>
-            
             <a href="catalogo.pdf" target="_blank" class="btn btn-pdf">
-                <i class="fas fa-file-pdf"></i> Ver Catálogo Completo
+                <i class="fas fa-file-pdf"></i> Catálogo de Eventos
             </a>
         </div>
 
         <div class="pigs-footer">
-            <img src="https://i.imgur.com/83p1y3U.png" alt="Cerdito Izquierdo"> <img src="https://i.imgur.com/83p1y3U.png" alt="Cerdito Derecho">   </div>
+            <i class="fas fa-piggy-bank"></i>
+            <i class="fas fa-piggy-bank"></i>
+        </div>
 
         <div class="footer">
-            <p>Visítanos en: La Esquina del Billar, Los Tejados.</p>
-            <br>
+            <p>La Esquina del Billar, Los Tejados.</p>
             <p>App desarrollada por <strong>Vibras Positivas (3117700431)</strong></p>
-            <p>© Todos los derechos reservados</p>
         </div>
     </div>
 
     <script>
-        // --- CONTROL DE SUSCRIPCIÓN INVISIBLE ---
-        // Fecha de vencimiento establecida: 15 de Marzo de 2027
-        const fechaVencimiento = new Date('2027-03-15');
-        const hoy = new Date();
-
-        if (hoy > fechaVencimiento) {
-            // Si hoy es mayor que la fecha de vencimiento, ocultamos la tarjeta y mostramos el aviso
+        // Fecha de vencimiento: 15 de Marzo de 2027
+        const vencimiento = new Date('2027-03-15');
+        if (new Date() > vencimiento) {
             document.getElementById('main-card').style.display = 'none';
             document.getElementById('expired-notice').style.display = 'block';
         }
