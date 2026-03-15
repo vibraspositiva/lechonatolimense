@@ -60,6 +60,7 @@
             border-radius: 15px;
             border: 4px solid var(--blanco);
             display: block;
+            background-color: white; /* Respaldo por si la imagen tarda en cargar */
         }
 
         .info { padding: 20px; }
@@ -77,6 +78,7 @@
             border-radius: 10px;
             font-size: 0.95rem;
             text-align: left;
+            border-left: 4px solid var(--amarillo-brillante);
         }
 
         .btn-container {
@@ -102,7 +104,7 @@
         .btn-call { background-color: var(--amarillo-brillante); }
         .btn-pdf { background-color: var(--blanco); }
 
-        /* Arreglo de los cerditos - Ahora son iconos, no imágenes rotas */
+        /* Iconos de cerditos dorados (FontAwesome) para evitar cuadritos negros */
         .pigs-footer {
             display: flex;
             justify-content: space-around;
@@ -125,15 +127,17 @@
             padding: 40px;
             border-radius: 20px;
             text-align: center;
+            border: 2px solid var(--rojo-fondo);
         }
     </style>
 </head>
 <body>
 
     <div id="expired-notice">
+        <i class="fas fa-lock" style="font-size: 3rem; color: #ff4444; margin-bottom: 20px;"></i>
         <h2>SERVICIO SUSPENDIDO</h2>
         <p>Contacte a soporte para renovación.</p>
-        <p><strong>Vibras Positivas: 3117700431</strong></p>
+        <p style="margin-top: 15px; color: var(--amarillo-brillante);"><strong>Vibras Positivas: 3117700431</strong></p>
     </div>
 
     <div class="card" id="main-card">
@@ -143,26 +147,26 @@
         </div>
 
         <div class="img-container">
-            <img src="https://i.ibb.co/3ykM0rR/lechona-portada.jpg" alt="Lechona Original">
+            <img src="lechonatolimensse.PNG" alt="Logo Lechona Tolimense">
         </div>
 
         <div class="info">
             <div class="price">$15.000</div>
             <p><em>¡Asegura tu porción los domingos!</em></p>
             <div class="story">
-                <strong>Nuestra Tradición:</strong> Carne marinada por 12 horas y cocción lenta para un cuero 100% crocante.
+                <strong>Nuestra Tradición:</strong> Carne marinada por 12 horas y cocción lenta para un cuero 100% crocante. Sabor 100% garantizado.
             </div>
         </div>
 
         <div class="btn-container">
             <a href="https://wa.me/573202496928" class="btn btn-ws" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp Pedidos
+                <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Pedidos
             </a>
             <a href="tel:3202496928" class="btn btn-call">
-                <i class="fas fa-phone-alt"></i> Llamar Directo
+                <i class="fas fa-phone-alt"></i>&nbsp; Llamar Directo
             </a>
             <a href="catalogo.pdf" target="_blank" class="btn btn-pdf">
-                <i class="fas fa-file-pdf"></i> Catálogo de Eventos
+                <i class="fas fa-file-pdf"></i>&nbsp; Catálogo de Eventos
             </a>
         </div>
 
@@ -172,15 +176,18 @@
         </div>
 
         <div class="footer">
-            <p>La Esquina del Billar, Los Tejados.</p>
-            <p>App desarrollada por <strong>Vibras Positivas (3117700431)</strong></p>
+            <p>La Esquina del Billar, Los Tejados - Caucasia</p>
+            <p style="margin-top: 5px;">App desarrollada por <strong>Vibras Positivas (3117700431)</strong></p>
         </div>
     </div>
 
     <script>
+        // CONTROL DE SUSCRIPCIÓN INVISIBLE
         // Fecha de vencimiento: 15 de Marzo de 2027
         const vencimiento = new Date('2027-03-15');
-        if (new Date() > vencimiento) {
+        const hoy = new Date();
+        
+        if (hoy > vencimiento) {
             document.getElementById('main-card').style.display = 'none';
             document.getElementById('expired-notice').style.display = 'block';
         }
